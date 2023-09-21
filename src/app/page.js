@@ -1,42 +1,19 @@
-"use client"
-
 import { PlayCircleOutlined,Search} from '@mui/icons-material';
 import './globals.css';
-import corredor from 'next/image';
 import Titulo from "@/components/Titulo";
 import CardSom from "@/components/CardSom";
-import { useEffect, useState } from 'react';
 
-async function carregarDados() {
-  try {
-    const response = await fetch(
-      'https://api.vagalume.com.br/rank.php?type=alb&period=month&periodVal=202308&scope=nacional&limit=5&apikey={c5efc47c2e8e46f1086a5154bdb7af07}'
-    );
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const json = await response.json();
-    return json.alb.week.all; // Extract the album data from the response
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
-  }
+async function carregarDados(){
+  const url = "https://api.vagalume.com.br/rank.php?type=alb&periodVal=202309&scope=nacional&limit=20&apikey={d2bd0e4ac1acc209b9d7f5ca9ab1e7ef}"
+  const response = await fetch(url)
+  const json = await response.json()
+  console.log(json.results);
+  return json.results
 }
 
-export default function Home() {
-  const [musicas, setMusicas] = useState([]);
+export default async function Home() {
 
-  useEffect(() => {
-    async function fetchData() {
-      const albumData = await carregarDados();
-      setMusicas(albumData);
-    }
-
-    fetchData();
-  }, []);
-
+const musicas = await carregarDados()
   
   return (
     <>
@@ -70,10 +47,10 @@ export default function Home() {
       <Titulo>Lançamentos</Titulo>
       
       <section className="flex flex-wrap px-40 justify-between text-zinc-100">
-      {musicas.map((musica) => (
-          <CardSom key={musica.id} musica={musica} />
-        ))}
+       {musicas.map( musica => <CardSom musica={musica} /> )}
       </section>    
+      
+      <Titulo>Álbuns Populares</Titulo>
     </>    
   )
 }

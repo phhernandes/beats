@@ -3,6 +3,7 @@
 import { HeartIcon } from '@heroicons/react/24/solid'
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline'
 import { useEffect, useState } from "react"
+import { PlayCircleOutlined,Search,FavoriteBorder, Bookmark, Label, LabelImportant, RectangleRounded, Favorite } from '@mui/icons-material';
 
 export default function CardSom({musica}){
     const[ favorito,setFavorito ] = useState(false) //hooks 
@@ -29,9 +30,9 @@ export default function CardSom({musica}){
 
     return (
         <div className="flex flex-col gap-1 items-center bg-slate-700 p-4 rounded-lg w-56 m-2 shadow-md">
-            <img alt={musica.alb.all.name} src={musica.alb.all.cover} className='rounded-lg line-clamp-1'/>
-            <a href={musica.alb.all.url} className='font-normal text-lg w-full text-center line-clamp-1'>{musica.alb.all.name}</a>
-            <a href={musica.alb.all.art.url} className='font-light text-lg w-full text-center line-clamp-1'>{musica.alb.all.art.name}</a>
+            <img alt={musica.alb.month.period.all.name} src={musica.alb.month.period.all.cover} className='rounded-lg line-clamp-1'/>
+            <a className='font-normal text-lg w-full text-center line-clamp-1'>{musica.alb.month.period.all.name}</a>
+            <a className='font-light text-lg w-full text-center line-clamp-1'>{musica.alb.month.period.all.name}</a> 
             {favorito ? 
             <HeartIcon 
               className="h-6 w-6 text-[#FF5964]  cursor-pointer"

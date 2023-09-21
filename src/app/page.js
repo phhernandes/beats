@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 async function carregarDados() {
   try {
     const response = await fetch(
-      'https://api.vagalume.com.br/rank.php?type=alb&period=week&periodVal=201134&scope=all&limit=1&apikey={c5efc47c2e8e46f1086a5154bdb7af07}'
+      'https://api.vagalume.com.br/rank.php?type=alb&period=month&periodVal=202308&scope=nacional&limit=1&apikey={c5efc47c2e8e46f1086a5154bdb7af07}'
     );
 
     if (!response.ok) {

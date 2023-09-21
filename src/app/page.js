@@ -4,7 +4,7 @@ import Titulo from "@/components/Titulo";
 import CardSom from "@/components/CardSom";
 
 async function carregarDados(){
-  const url = "https://api.vagalume.com.br/rank.php?type=alb&periodVal=202309&scope=nacional&limit=20&apikey={d2bd0e4ac1acc209b9d7f5ca9ab1e7ef}"
+  const url = "https://api.vagalume.com.br/rank.php?type=alb&period=month&periodVal=202308&scope=nacional&limit=5&apikey={c5efc47c2e8e46f1086a5154bdb7af07}"
   const response = await fetch(url)
   const json = await response.json()
   console.log(json.results);

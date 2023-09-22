@@ -4,16 +4,17 @@ import Titulo from "@/components/Titulo";
 import CardSom from "@/components/CardSom";
 
 async function carregarDados(){
-  const url = "https://api.vagalume.com.br/rank.php?type=alb&period=month&periodVal=202308&scope=nacional&limit=5&apikey={c5efc47c2e8e46f1086a5154bdb7af07}"
+  const url = "https://api.vagalume.com.br/rank.php?type=alb&period=month&periodVal=202308&scope=nacional&limit=20&apikey={c5efc47c2e8e46f1086a5154bdb7af07}"
   const response = await fetch(url)
   const json = await response.json()
-  console.log(json.results);
-  return json.results
+  console.log(json);
+  return json
 }
 
 export default async function Home() {
 
 const musicas = await carregarDados()
+console.log(musicas)
   
   return (
     <>
@@ -47,7 +48,8 @@ const musicas = await carregarDados()
       <Titulo>Lançamentos</Titulo>
       
       <section className="flex flex-wrap px-40 justify-between text-zinc-100">
-       {musicas.map( musica => <CardSom musica={musica} /> )}
+       {/* {musicas.map( musica => <CardSom musica={musica} /> )} */}
+       <CardSom musica={musicas} />
       </section>    
       
       <Titulo>Álbuns Populares</Titulo>

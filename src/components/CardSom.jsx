@@ -1,6 +1,7 @@
 "use client"
 
-import { HeartIcon, HeartIconOutline } from "@heroicons/react/outline";
+import { HeartIcon} from "@heroicons/react/solid";
+import { HeartIcon as HeartIconOutline } from '@heroicons/react/outline'
 import { useEffect, useState } from "react";
 
 
@@ -70,29 +71,29 @@ export default function CardSom({ musica }) {
     <div className="flex flex-col gap-1 items-center bg-slate-700 p-4 rounded-lg w-56 m-2 shadow-md">
 
       <img
-        alt={musica.all.name}
-        src={musica.all.cover}
+        alt={musica.name}
+        src={musica.cover}
         className="rounded-lg line-clamp-1"
       />
       <a className="font-normal text-lg w-full text-center line-clamp-1">
-        {musica.all.name}
+        {musica.name}
       </a>
       <a className="font-light text-lg w-full text-center line-clamp-1">
-        {musica.all.art.name}
+      {musica.art && musica.art.name}
       </a>
-      {favorito ? (
+      {favorito ? 
         <HeartIcon
           className="h-6 w-6 text-[#FF5964]  cursor-pointer"
           onClick={desfavoritar}
         />
-      ) : (
+        :
         <HeartIconOutline
           className="h-6 w-6 text-zinc-100  cursor-pointer hover:text-[#FF5964]"
           onClick={favoritar}
         />
-      )}
+      }
     </div>
-  );
+  )
 }
 
 

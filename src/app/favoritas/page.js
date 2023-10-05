@@ -25,7 +25,7 @@ const musicas = await carregarDados()
       <Titulo>Favoritos</Titulo>
       
       <section className="flex flex-wrap px-40 justify-between text-zinc-100">
-       <CardSom musica={musicas} />
+       <CardSom favoritos={musicas} />
       </section>
     </>    
   )

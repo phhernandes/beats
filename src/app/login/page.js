@@ -32,7 +32,7 @@ export default function login(){
             <main className="container m-auto max-w-md p-6 text-zinc-100">
                 <div className="flex">
                     <PlayCircleOutlined className='text-3xl' style={{ color:'#FF5964' }}/>
-                    <h1 className="text-xl font-bold">FSDB</h1>
+                    <h1 className="text-xl font-bold">Beats</h1>
                 </div>
                 <form onSubmit={login} className="flex flex-col">
                     <label htmlFor="email">Email</label>

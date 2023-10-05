@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { toast } from "react-hot-toast"
 import { PlayCircleOutlined,Search, VideocamOffOutlined} from '@mui/icons-material';
+import { serverLogin } from "@/actions/auth";
 
 export default function login(){
     const [email,setEmail] = useState("")
@@ -15,6 +16,7 @@ export default function login(){
     function login(e){
         e.preventDefault()
         if (email === "pedrobeco97@gmail.com" && senha === "aaa"){
+            serverLogin()
             push("/")
         }else{
             toast.error("Credenciais Invalidas",)
